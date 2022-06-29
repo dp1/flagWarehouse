@@ -52,12 +52,12 @@ def loop(app: Flask):
             queue_length = queue.qsize()
             try:
                 # Send N requests per interval
+
                 while i < min(current_app.config['SUB_LIMIT'], queue_length):
                     # Send N flags per request
                     flags = []
                     for _ in range(min(current_app.config['SUB_PAYLOAD_SIZE'], queue_length)):
                         flags.append(queue.get())
-
                     res = requests.put(current_app.config['SUB_URL'],
                                        headers={'X-Team-Token': current_app.config['TEAM_TOKEN']},
                                        json=flags,
@@ -95,8 +95,8 @@ def loop(app: Flask):
                             WHERE flag = ?
                             ''', (current_app.config['DB_SUB'], current_app.config['DB_SUCC'], item['flag']))
                         i += 1
-            except requests.exceptions.RequestException:
-                logger.error('Could not send the flags to the server, retrying...')
+            except requests.exceptions.RequestException as error:
+                logger.error('Could not send the flags to the server, retrying...', error)
             finally:
                 # At the end, update status as EXPIRED for flags not sent because too old
                 cursor.execute('''
