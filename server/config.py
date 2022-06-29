@@ -1,8 +1,8 @@
 class Config(object):
-    WEB_PASSWORD = 'password'
-    API_TOKEN = 'token'
+    WEB_PASSWORD = 'caffeinateina123'
+    API_TOKEN = 'caffeinateina123'
 
-    YOUR_TEAM = '10.60.27.1'
+    YOUR_TEAM = '10.60.8.1'
     TEAM_TOKEN = '8a8d25f465bec01d'
     TEAMS = ['10.60.{}.1'.format(i) for i in range(1, 35)]
     TEAMS.remove(YOUR_TEAM)
@@ -30,6 +30,6 @@ class Config(object):
     DB_ERR = 'ERROR'
     DB_EXP = 'EXPIRED'
 
-    SECRET_KEY = 'changeme'
+    SECRET_KEY = 'changeMe'
 
     DATABASE = 'instance/flagWarehouse.sqlite'

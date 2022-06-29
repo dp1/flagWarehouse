@@ -27,7 +27,9 @@ BANNER = '''
 '''[1:]
 
 logging.basicConfig(format='%(asctime)s %(levelname)s - %(message)s',
-                    datefmt='%H:%M:%S', level=logging.INFO)
+                    datefmt='%H:%M:%S', level=logging.DEBUG if os.environ.get('LOG') == 'DEBUG' or os.environ.get('LOG_LEVEL') == 'DEBUG' else logging.INFO)
+logging.debug('DEBUG MODE ACTIVE!')
+
 
 
 def parse_args():
@@ -73,7 +75,9 @@ def run_exploit(exploit: str, ip: str, round_duration: int, server_url: str, tok
 
     timer.start()
     while True:
-        output = p.stdout.readline().decode().strip()
+        output = p.stdout.readline().decode()
+        logging.debug(output)
+        output = output.strip()
         if output == '' and p.poll() is not None:
             break
         if output:
