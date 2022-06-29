@@ -3,7 +3,7 @@ class Config(object):
     API_TOKEN = 'caffeinateina123'
 
     YOUR_TEAM = '10.60.8.1'
-    TEAM_TOKEN = '8a8d25f465bec01d'
+    TEAM_TOKEN = 'a6c93cc0ee533a3352f431ad3175e318'
     TEAMS = ['10.60.{}.1'.format(i) for i in range(1, 35)]
     TEAMS.remove(YOUR_TEAM)
 
@@ -14,13 +14,13 @@ class Config(object):
     SUB_LIMIT = 1
     SUB_INTERVAL = 5
     SUB_PAYLOAD_SIZE = 100
-    SUB_URL = 'http://10.1.0.2/flags'
+    SUB_URL = 'http://10.10.0.1:8080/flags'
 
     SUB_ACCEPTED = 'accepted'
     SUB_INVALID = 'invalid'
     SUB_OLD = 'too old'
     SUB_YOUR_OWN = 'your own'
-    SUB_STOLEN = 'already stolen'
+    SUB_STOLEN = 'already claimed'
     SUB_NOP = 'from NOP team'
     SUB_NOT_AVAILABLE = 'is not available'
 
@@ -30,6 +30,6 @@ class Config(object):
     DB_ERR = 'ERROR'
     DB_EXP = 'EXPIRED'
 
-    SECRET_KEY = 'changeMe'
+    SECRET_KEY = 'caffeinateina123'
 
     DATABASE = 'instance/flagWarehouse.sqlite'
